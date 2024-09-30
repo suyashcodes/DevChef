@@ -1,2 +1,0 @@
-# Leaderboard
-Created with CodeSandbox

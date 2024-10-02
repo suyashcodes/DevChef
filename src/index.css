@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    background-color: black;
+    font-family: "Roboto Mono", monospace;
+}
+
+.hollowText {
+    font-family: "Londrina Outline", sans-serif;
+    
+}
+
+.hollowTextBold {
+    font-family: "Londrina Outline", sans-serif;
+    font-weight: 800;
+}
+
+.shadow {
+    box-shadow: 0px 0px 25px 25
+    px #ff5f1482;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#techfeud {
+    font-family: "Arvo", serif;
+}
+
+.symbols {
+    font-family: "Arvo", system-ui;
+}
+
+.texhFuedTagline {
+    font-family: "Arvo", system-ui;
+    font-weight: 400;
+}
+
+.mainFont {
+    font-family: "Roboto Mono", monospace;
+}
+
+.arvo-bold {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+.lines {
+    filter: grayscale(100%);
+}
+
+html {
+    scroll-behavior: smooth;
+}

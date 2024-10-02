@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react'
 import DynamicNavbar from '../components/DynamicNavbar'
 import { motion } from 'framer-motion';
 import Papa from "papaparse";
+window.dataLayer = window.dataLayer || [];
+function ga(args) {
+  dataLayer.push(args);
+}
+ga('js', new Date());
 
+ga('config', 'G-94R4ZWSHRV');
 const LeaderBoard = () => {
 
     const [data, setData] = useState([])
@@ -69,6 +75,7 @@ const LeaderBoard = () => {
 
     return (
         <div className='w-screen min-h-[100svh] bg-[#282523] text-white text-[12px] s600:text-[14px] s800:text-[16px]'>
+
             <DynamicNavbar
                 links={
                     [

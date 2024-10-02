@@ -11,6 +11,7 @@ export default function App() {
                 <Route path="/" element={<DevChef />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
             </Routes>
+            
         </Router>
     )
   }

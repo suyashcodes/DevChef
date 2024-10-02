@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react'
 import WavyBackground from '../components/WavyBackground'
 import DynamicNavbar from '../components/DynamicNavbar'
 import { motion } from 'framer-motion'
+window.dataLayer = window.dataLayer || [];
+function ga(args) {
+  dataLayer.push(args);
+}
+ga('js', new Date());
 
+ga('config', 'G-94R4ZWSHRV');
 const DevChef = () => {
 
     const [width, setWidth] = useState(window.innerWidth)

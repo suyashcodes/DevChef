@@ -26,7 +26,7 @@ heights contains height of navbar in mobile and desktop view
 */
 
 
-const DynamicNavbar = ({links, colors, logoURL, activeInNavbar, heights, logoWidth}) => {
+const DynamicNavbar = ({links, colors, logo, activeInNavbar, button}) => {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [menuActivated, setMenuActivated] = useState(false)
@@ -143,9 +143,9 @@ const DynamicNavbar = ({links, colors, logoURL, activeInNavbar, heights, logoWid
             <ul className='flex h-full  w-full items-center s600:justify-evenly justify-between text-[12px] s800:text-[18px]'>
 
                  {/* logo */}
-                {width <= 600 && <li className='scale-100  s600:scale-0 w-[100px] justify-center flex items-start h-full'>
+                {width <= 600 && <li className='scale-100  s600:scale-0 justify-center flex items-start h-full' style={{width: logo.mobileWidth}}>
                     <div className=' w-full h-[60px] flex justify-center items-center'>
-                        <img className={`w-full s600:w-0 ml-[40px]`} src={logoURL} alt="pagelogo" />
+                        <img className={`w-full s600:w-0 ml-[40px]`} src={logo.logoURL} alt="pagelogo" />
                     </div>
                 </li>}
 
@@ -160,7 +160,7 @@ const DynamicNavbar = ({links, colors, logoURL, activeInNavbar, heights, logoWid
                     animate={navbarButtonsAnimationController}
                 >
                     {activeInNavbar && width > 600 && <li className='inline-block'>
-                        <img className='w-[100px]' src={logoURL} alt="" />    
+                        <img src={logo.logoURL} alt="" style={{width: logo.width}} />    
                     </li>}
 
                     {
@@ -179,32 +179,36 @@ const DynamicNavbar = ({links, colors, logoURL, activeInNavbar, heights, logoWid
                     }
 
 
-                    <motion.li
-                        className='py-[5px] w-[90px] s800:py-[10px] s800:w-[110px] text-[white] rounded-[3px] flex justify-center items-center cursor-pointer' 
+                    {button && <motion.li
+                        className='rounded-[3px]' 
                         style={{
                             backgroundColor: colors.primary
                         }}
                         initial={{
-                            gap: '10px',
                             scale: 1
                         }}
                         whileHover={{
-                            gap: '20px',
                             scale: 1.1
                         }}
 
                     >
-                        <p style={{
-                            color: colors.buttonText
-                        }} >Team</p>
-                        <img className='w-[15px]' 
-                            src="/icons/arrow.svg" 
-                            alt="" 
-                            style={{
-                                filter: colors.buttonText == 'white' ? '' : 'invert(100%)'
-                            }}
-                        />
-                    </motion.li>
+                        <a 
+                            className='py-[5px] gap-[10px] px-[15px] s800:py-[10px] text-[white] rounded-[3px] flex justify-center items-center cursor-pointer'
+                            href={button.link}>
+                            <p style={{
+                                color: colors.buttonText
+                            }} >{button.text}</p>
+
+                            <img className='w-[15px]' 
+                                src="/icons/arrow.svg" 
+                                alt="" 
+                                style={{
+                                    filter: colors.buttonText == 'white' ? '' : 'invert(100%)'
+                                }}
+                            />
+                        </a>
+                    </motion.li>}
+
                 </motion.div>
 
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import WavyBackground from '../components/WavyBackground'
 import DynamicNavbar from '../components/DynamicNavbar'
 import { motion } from 'framer-motion'
+import LeaderBoard from './LeaderBoard'
 
 const DevChef = () => {
 
@@ -31,19 +32,24 @@ const DevChef = () => {
                     links={
                         [
                             {
-                                name: 'Home',
-                                link: '/'
-                            },
-                            {
                                 name: 'About',
                                 link: '#about'
                             },
                             {
-                                name: 'Leaderboard',
-                                link: '/leaderboard'
-                            }
+                                name: 'Event Details',
+                                link: '#'
+                            },
+                            {
+                                name: 'Why Participate',
+                                link: '#'
+                            },
+                           
                         ]
                     }
+                    button={{
+                        text: 'Leaderboard',
+                        link: '/leaderboard'
+                    }}
                     colors={{
                         primary: '#ea580c',
                         secondary: '#ffb48d',
@@ -51,7 +57,11 @@ const DevChef = () => {
                         background: '#0000',
                         buttonText: 'white'
                     }}
-                    logoURL={"/logos/DevChef Posters (4).png"}
+                    logo={{
+                        logoURL: "/logos/DevChef Posters (4).png",
+                        width: 140,
+                        mobileWidth: 100
+                    }}
                     activeInNavbar={true}
 
 

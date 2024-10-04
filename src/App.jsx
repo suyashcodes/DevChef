@@ -8,6 +8,7 @@ export default function App() {
         
         <Router>
             <ScrollToTop />
+            <Analytics />
             <Routes>
                 
                 <Route path="/" element={<DevChef />} />

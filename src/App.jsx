@@ -9,7 +9,6 @@ export default function App() {
         <Router>
             <ScrollToTop />
             <Routes>
-            <Analytics />
                 
                 <Route path="/" element={<DevChef />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />

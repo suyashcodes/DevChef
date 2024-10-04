@@ -39,7 +39,7 @@ const DynamicNavbar = ({links, colors, logo, activeInNavbar, button}) => {
 
     function expandNavbar() {
         navbarAnimationController.start({
-            height: menuActivated ? 80 : 250
+            height: menuActivated ? 80 : links.length * 70
         })
         navbarButtonsAnimationController.start({
             display: menuActivated ? 'none' : 'flex',

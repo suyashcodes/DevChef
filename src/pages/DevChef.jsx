@@ -37,11 +37,11 @@ const DevChef = () => {
                             },
                             {
                                 name: 'Event Details',
-                                link: '#'
+                                link: '#event-details'
                             },
                             {
                                 name: 'Why Participate',
-                                link: '#'
+                                link: '#why-participate'
                             },
 
                         ]
@@ -76,7 +76,7 @@ const DevChef = () => {
                             {width < 600 && <div className='w-[60%] s600:w-[80%] m-auto flex justify-start items-start scale-150 s600:scale-100 s600:ml-[-40px] s800:ml-[-20px]'><img className='w-full' src="/logos/DevChef Posters (7).png" alt="combined logo" /></div>}
                         </div>
 
-                        <div className='w-full h-full  flex flex-col gap-[10px] justify-end s600:justify-start pb-[70px]'>
+                        <div className='w-full h-full  flex flex-col gap-[10px] s600:gap-[50px] justify-end s600:justify-start pb-[70px]'>
                             {/* <div>
                                 <p className='text-[20px] font-bold'>26th september 2024</p>
                             </div> */}
@@ -100,10 +100,11 @@ const DevChef = () => {
                             </div>
 
                             <motion.button
-                                className='w-full s600:w-[300px] px-[20px] py-[13px] text-[110%] s600:px-[10px] s600:py-[10px] text-white bg-orange-500 rounded-[10px] font-bold'
-                                initial={{ scale: 1 }}
-                                whileHover={{ scale: 1.1 }}
-                            >Register now!</motion.button>
+                                className='w-full s600:w-[370px] px-[20px] py-[13px] text-[110%] s600:px-[10px] s600:py-[10px] text-white bg-orange-500 rounded-[10px] font-bold'
+                                // initial={{ scale: 1 }}
+                                // whileHover={{ scale: 1.1 }}
+                                disabled={true}
+                            >Registrations will open soon!</motion.button>
 
                         </div>
 
@@ -238,7 +239,7 @@ const DevChef = () => {
                     >
                         <div className='flex justify-center relative items-center gap-[20px]'>
 
-                            <div className='flex flex-col gap-[10px] s600:gap-[20px]'>
+                            <div id='about' className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>About the event</p>
                                 <div className='flex flex-col gap-[15px]'>
                                     <p>The DevChef Monthly DSA Coding Contest is designed to help students refine their coding skills through competitive programming. Each month, participants will tackle three problems ranging from Easy to Hard, designed to test their understanding of Data Structures and Algorithms.</p>
@@ -311,7 +312,7 @@ const DevChef = () => {
                     >
                         <div className='flex justify-between relative w-full items-center gap-[20px]'>
 
-                            <div className='flex flex-col gap-[10px] s600:gap-[20px]'>
+                            <div id='event-details' className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>Event Details</p>
                                 <div className='flex flex-col gap-[15px]'>
                                     <p>📅 Contest Date: 26th September 2024 <br />
@@ -368,7 +369,7 @@ const DevChef = () => {
                                 transition={{ type: 'spring', repeat: Infinity, delay: 1, repeatType: 'mirror' }}
                             >!</motion.p></div>}
 
-                            <div className='flex flex-col gap-[10px] s600:gap-[20px]'>
+                            <div id='why-participate' className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>Why participate?</p>
                                 <div className='flex flex-col gap-[15px]'>
                                     <p>Perfect Placement Prep: Practice DSA problems and get placement-ready by honing your problem-solving skills. </p>

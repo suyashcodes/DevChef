@@ -149,11 +149,6 @@ const LeaderBoard = () => {
                             color = '#000'
                             shadow = '0px 0px 7px 1px #C0C0C0'
                         }
-                        else if (index + 1 == 3) {
-                            backgroundColor = '#CD7F32'
-                            color = '#000'
-                            shadow = '0px 0px 7px 1px #CD7F32'
-                        }
 
 
                         return (<LeaderboardElement key={index} item={item} backgroundColor={backgroundColor} color={color} shadow={shadow} rank={index+1} />)

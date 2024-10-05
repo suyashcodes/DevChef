@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DynamicNavbar from '../components/DynamicNavbar'
 import {  motion } from 'framer-motion';
 import Papa from "papaparse";
+import LeaderboardElement from '../components/LeaderboardElement';
 
 const LeaderBoard = () => {
 
@@ -155,57 +156,7 @@ const LeaderBoard = () => {
                         }
 
 
-                        return (
-                            <motion.div
-                                key={index}
-                                className='ranker-section flex flex-col s600:flex-row s600:justify-center  items-center py-[22px] rounded-[10px]'
-                                variants={boxVariants}
-                                initial={'intial'}
-                                whileHover={'whileHover'}
-                                whileTap={'whileTap'}
-                                style={{ backgroundColor, color, boxShadow: shadow }}
-                            >
-                                <div className='s600:flex-1 w-full s600:w-auto  flex px-[20px] s600:px-0'>
-                                    <p className='w-[20px] ml-[10px] s600:ml-0 s600:w-[10%]  text-center ' >{index + 1}</p>
-                                    <div className=' w-[23%]  flex-1 flex justify-center items-center'>
-                                        <div className='w-[25px] h-[13px] relative'>
-                                            {index + 1 == 1 && <img className='w-[25px] h-[13px] rotate-[-30deg] left-[13px] top-[-16px] absolute' src="/icons/golden-crown.png" alt="golden crown" />}
-                                            {index + 1 == 2 && <img className='w-[25px] h-[13px] rotate-[-30deg] left-[13px] top-[-16px] absolute' src="/icons/silver-crown.png" alt="golden crown" />}
-                                            {index + 1 == 3 && <img className='w-[25px] h-[13px] rotate-[-30deg] left-[13px] top-[-16px] absolute' src="/icons/bronze-crown.png" alt="golden crown" />}
-                                        </div>
-                                        <p className='text-center'>{item.Name}</p>
-                                    </div>
-                                    <p className=' w-[15%] text-center'>{item.Totalscore}</p>
-                                </div>
-
-
-                                {width > 600 && <div className='w-[30%] flex'>
-                                    <p className='w-1/3  text-center'>{item["Raj's Homework"]}</p>
-                                    <p className='w-1/3  text-center'>{item["Alien Artifacts"]}</p>
-                                    <p className='w-1/3 text-center'>{item["keeper of Mystical key"]}</p>
-                                </div>}
-
-                                {width <= 600 && <motion.div
-                                    variants={individualProblemsVariants}
-                                    style={{ display: 'none' }}
-                                    className='w-[80%] m-auto p-[10px] rounded-lg '
-                                >
-                                    <div className=' w-full text-center flex items-center justify-between'>
-                                        <p>Raj's Homework:</p>
-                                        <p>{item["Raj's Homework"]}</p>
-                                    </div>
-                                    <div className=' w-full text-center flex items-center justify-between'>
-                                        <p>Alien Artifacts:</p>
-                                        <p>{item["Alien Artifacts"]}</p>
-                                    </div>
-                                    <div className=' w-full text-center flex items-center justify-between'>
-                                        <p>Keeper of Mystical key:</p>
-                                        <p>{item["keeper of Mystical key"]}</p>
-                                    </div>
-
-                                </motion.div>}
-
-                            </motion.div>)
+                        return (<LeaderboardElement key={index} item={item} backgroundColor={backgroundColor} color={color} shadow={shadow} rank={index+1} />)
                     })
                 }
             </section>

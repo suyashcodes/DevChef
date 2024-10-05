@@ -89,7 +89,7 @@ const LeaderboardElement = ({shadow, backgroundColor, color, rank, item}) => {
             {width <= 600 && <motion.div
                 variants={individualProblemsVariants}
                 // style={{ display: 'none', scaleY: 0 }}
-                className='w-[80%] m-auto p-[10px] rounded-lg mt-[25px]'
+                className='w-[80%] m-auto p-[10px] rounded-lg mt-[20px]'
             >
                 <div className=' w-full text-center flex items-center justify-between'>
                     <p>Raj's Homework:</p>

@@ -35,7 +35,10 @@ const LeaderboardElement = ({shadow, backgroundColor, color, rank, item}) => {
             backgroundColor: menuActive ? '#0000' : '#fff',
             color: menuActive ? '#000' : '#000',
             scaleY: menuActive ? 0 : 1,
-            y: menuActive ? -40 : 0
+            y: menuActive ? -40 : 0,
+            transition: {
+                type: 'linear'
+            }
         }
 
     }
@@ -86,8 +89,6 @@ const LeaderboardElement = ({shadow, backgroundColor, color, rank, item}) => {
 
             {width <= 600 && <motion.div
                 variants={individualProblemsVariants}
-                initial={'initial'}
-                animate={'animate'}
                 // style={{ display: 'none', scaleY: 0 }}
                 className='w-[80%] m-auto p-[10px] rounded-lg mt-[25px]'
             >

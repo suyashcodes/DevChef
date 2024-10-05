@@ -28,7 +28,7 @@ const LeaderBoard = () => {
 
     useEffect(() => {
         // Assuming the CSV file is located in the public folder
-        fetch("leaderboardData/SeptemberLeaderboard - Sheet1.csv")
+        fetch("leaderboardData/SeptemberLeaderboard - Sheet1 (1).csv")
             .then((response) => response.text())
             .then((csvText) => {
                 Papa.parse(csvText, {

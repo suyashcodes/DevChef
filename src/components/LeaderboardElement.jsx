@@ -73,7 +73,6 @@ const LeaderboardElement = ({shadow, backgroundColor, color, rank, item}) => {
                     <div className='w-[25px] h-[13px] relative'>
                         {rank == 1 && <img className='w-[25px] h-[13px] rotate-[-30deg] left-[13px] top-[-16px] absolute' src="/icons/golden-crown.png" alt="golden crown" />}
                         {rank == 2 && <img className='w-[25px] h-[13px] rotate-[-30deg] left-[13px] top-[-16px] absolute' src="/icons/silver-crown.png" alt="golden crown" />}
-                        {rank == 3 && <img className='w-[25px] h-[13px] rotate-[-30deg] left-[13px] top-[-16px] absolute' src="/icons/bronze-crown.png" alt="golden crown" />}
                     </div>
                     <p className='text-center'>{item.Name}</p>
                 </div>

@@ -77,6 +77,11 @@ const LeaderBoard = () => {
 
             <section className='w-full max-w-[1200px]  gap-y-[24px] flex flex-col  m-auto p-[10px] s600:p-[20px] pt-[70px]'>
 
+                <div className='w-full py-4 font-extrabold text-orange-600  flex gap-3 items-center'> 
+                    <p className='text-[0.9rem] font-extrabold px-2 py-[6px] rounded-xl bg-[#453f39] w-fit'>Chapter 1</p> 
+                    <p className='text-[17px]'>28th September 2024</p>
+                </div>
+
 
                 <div className='ranker-section flex  items-center py-[20px] font-bold'>
                     <div className='w-full s600:w-auto s600:flex-1 flex items-center justify-between'>

@@ -47,38 +47,6 @@ const LeaderBoard = () => {
 
 
 
-
-    const boxVariants = {
-        initial: {
-            scale: 1
-        },
-        whileHover: {
-            scale: 1.02,
-            backgroundColor: '#fff',
-            color: '#000',
-            boxShadow: '0px 0px 20px 2px #474340'
-        },
-        whileTap: {
-            height: width <= 600 ? 170 : 'auto',
-            gap:  width <= 600 ? '20px' : 'auto'
-        }
-    }
-
-    const individualProblemsVariants = {
-        initial: {
-            display: 'none',
-            backgroundColor: '#0000',
-            scale: 0,
-        },
-        whileTap: {
-            display: 'block',
-            backgroundColor: '#fff',
-            color: '#000',
-        }
-    }
-
-
-
     return (
         <div className='w-screen min-h-[100svh] bg-[#282523] text-white text-[14px] s600:text-[14px] s800:text-[16px]'>
             <DynamicNavbar
@@ -122,13 +90,6 @@ const LeaderBoard = () => {
                         <p className=" w-1/3 text-center ">Q3</p>
                     </div>}
                 </div>
-
-                {/* <div className='s600:flex-1 w-full s600:w-auto  flex'>
-                    <p className='w-[20px] ml-[10px] s600:ml-0 s600:w-[10%]  text-center ' >Rank</p>
-                    <p className='  w-[23%] text-center'>Name</p>
-                    <p className=' w-[15%] text-center'>Total score</p>
-                </div> */}
-
 
 
 

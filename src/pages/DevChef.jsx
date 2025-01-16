@@ -8,6 +8,12 @@ const DevChef = () => {
 
     const [width, setWidth] = useState(window.innerWidth)
 
+    // just update the link and regrestration status here. No need to change anything else
+    const isRegestrationOpen = true
+    const formLink = "https://forms.gle/bge64VMErrgzUskg8"
+    const eventDate = "19th January 2025 (11:00 AM)"
+    const eventMode = "Online"
+
     function handleResize() {
         setWidth(window.innerWidth)
     }
@@ -97,14 +103,27 @@ const DevChef = () => {
                                     </div>
                                     <p className='text-white  text-[250%] s800:text-[300%] hollowTextBold tracking-widest'>skills!</p>
                                 </div>
+                            <div>{eventDate}</div>
                             </div>
 
-                            <motion.button
-                                className='w-full s600:w-[370px] px-[20px] py-[13px] text-[110%] s600:px-[10px] s600:py-[10px] text-white bg-orange-500 rounded-[10px] font-bold'
+
+
+                            {isRegestrationOpen && <motion.a
+                                className='w-full s600:w-[370px] px-[20px] py-[13px] text-[110%] s600:px-[10px] s600:py-[10px] text-center text-white bg-orange-500 rounded-[10px] font-bold'
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 1.1 }}
+                                disabled={false}
+                                href={formLink}
+                            >Register now!</motion.a>}
+
+                            {!isRegestrationOpen && <motion.a
+                                className='w-full s600:w-[370px] px-[20px] py-[13px] text-[110%] s600:px-[10px] s600:py-[10px] text-center text-white bg-orange-500 rounded-[10px] font-bold'
                                 // initial={{ scale: 1 }}
                                 // whileHover={{ scale: 1.1 }}
                                 disabled={true}
-                            >Registrations will open soon!</motion.button>
+                            >Regestrations will open soon!</motion.a>}
+
+
 
                         </div>
 
@@ -315,11 +334,14 @@ const DevChef = () => {
                             <div id='event-details' className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>Event Details</p>
                                 <div className='flex flex-col gap-[15px]'>
-                                    <p>📅 Contest Date: 26th September 2024 <br />
+                                    <p>
+                                        📅 Contest Date: {eventDate} <br />
                                         🕒 Format: 3 DSA problems (Easy, Medium, Hard) <br />
                                         ⏱️ Duration: 1.5 hours <br />
+                                        🎛️ Mode: {eventMode} <br />
                                         💸 Entry Fee: ₹19 per participant <br />
-                                        🌍 Eligibility: Open to all students at Dr. D. Y. Patil Institute of Technology</p>
+                                        🌍 Eligibility: Open to all students at Dr. D. Y. Patil Institute of Technology <br/>
+                                    </p>
                                 </div>
                             </div>
 

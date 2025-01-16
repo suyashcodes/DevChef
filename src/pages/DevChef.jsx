@@ -8,12 +8,13 @@ const DevChef = () => {
 
     const [width, setWidth] = useState(window.innerWidth)
 
-    // just update the link and regrestration status here. No need to change anything else
+    // Make changes here only
     const isRegestrationOpen = true
     const formLink = "https://forms.gle/bge64VMErrgzUskg8"
     const eventDate = "19th January 2025 (11:00 AM)"
     const eventMode = "Online"
-
+    const chapterNo = 2
+    
     function handleResize() {
         setWidth(window.innerWidth)
     }
@@ -77,8 +78,9 @@ const DevChef = () => {
                     <WavyBackground />
                     <div className='w-full h-full s600:w-[60%] s800:w-[55%] s1000:w-[65%] s1230:w-[75%] relative top-[50px] z-[20]   flex flex-col gap-[50px] items-start justify-start ' >
 
-                        <div className='flex flex-col gap-[80px] items-center '>
+                        <div className='flex flex-col relative gap-[80px] items-center '>
                             <div className='w-[60%] s600:w-[80%] m-auto flex justify-start items-start scale-150 s600:scale-100 s600:ml-[0px] s800:ml-[-20px] s1000:ml-0'><img className='w-full' src="/logos/DevChef Posters (4).png" alt="devchefLogo" /></div>
+                            <p className='absolute right-[15px] top-16 s600:bottom-0 s600:right-0 text-[0.75rem] font-extrabold p-2 rounded-xl bg-[#2f2b27]'>Chapter {chapterNo}</p>
                             {width < 600 && <div className='w-[60%] s600:w-[80%] m-auto flex justify-start items-start scale-150 s600:scale-100 s600:ml-[-40px] s800:ml-[-20px]'><img className='w-full' src="/logos/DevChef Posters (7).png" alt="combined logo" /></div>}
                         </div>
 

@@ -9,7 +9,7 @@ const DevChef = () => {
     const [width, setWidth] = useState(window.innerWidth)
 
     // Make changes here only
-    const isRegestrationOpen = true
+    const isRegestrationOpen = false
     const formLink = "https://forms.gle/bge64VMErrgzUskg8"
     const eventDate = "19th January 2025 (11:00 AM)"
     const eventMode = "Online"
@@ -105,7 +105,7 @@ const DevChef = () => {
                                     </div>
                                     <p className='text-white  text-[250%] s800:text-[300%] hollowTextBold tracking-widest'>skills!</p>
                                 </div>
-                            <div>{eventDate}</div>
+                                {isRegestrationOpen && <div>{eventDate}</div>}
                             </div>
 
 

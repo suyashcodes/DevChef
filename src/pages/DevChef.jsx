@@ -9,11 +9,11 @@ const DevChef = () => {
     const [width, setWidth] = useState(window.innerWidth)
 
     // Make changes here only
-    const isRegestrationOpen = false
-    const formLink = "https://forms.gle/bge64VMErrgzUskg8"
-    const eventDate = "19th January 2025 (11:00 AM)"
-    const eventMode = "Online"
-    const chapterNo = 2
+    const isRegestrationOpen = true
+    const formLink = "https://docs.google.com/forms/d/e/1FAIpQLScYlV8NuQNdFcSpSK6CsHWemdS6MkP-niB4tm6aZMQRmASVdw/viewform?usp=header"
+    const eventDate = "8th February 2025 (11:00 AM)"
+    const eventMode = "Offline"
+    const chapterNo = 3
     
     function handleResize() {
         setWidth(window.innerWidth)
@@ -341,7 +341,7 @@ const DevChef = () => {
                                         🕒 Format: 3 DSA problems (Easy, Medium, Hard) <br />
                                         ⏱️ Duration: 1.5 hours <br />
                                         🎛️ Mode: {eventMode} <br />
-                                        💸 Entry Fee: ₹19 per participant <br />
+                                        {/* 💸 Entry Fee: ₹19 per participant <br /> */}
                                         🌍 Eligibility: Open to all students at Dr. D. Y. Patil Institute of Technology <br/>
                                     </p>
                                 </div>

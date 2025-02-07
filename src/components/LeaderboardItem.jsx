@@ -60,7 +60,6 @@ const LeaderboardItem = ({ index, item, keys }) => {
                 })
 
                 // for mobile
-                
 
 
         }</motion.tr>

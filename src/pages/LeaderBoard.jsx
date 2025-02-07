@@ -5,6 +5,7 @@ import Papa from "papaparse";
 import LeaderboardElement from '../components/LeaderboardElement';
 import { div } from 'framer-motion/client';
 import LeaderboardItem from '../components/LeaderboardItem';
+import Participant from '../components/Participant'
 
 const LeaderBoard = () => {
 
@@ -176,10 +177,10 @@ const LeaderBoard = () => {
                 </div>
 
 
-                <div className='overflow-x-scroll px-3'>
+                {/* <div className='overflow-x-scroll px-3'>
                     {(data && keys) ? <table className=" w-full border-separate border-spacing-y-4 ">
                         <thead>
-                            <tr >{
+                            <tr>{
                                 keys.map((key, index) => {
                                     if (!key.toLowerCase().startsWith('q'))
                                         return <th key={index} className="text-left font-bold px-4 py-2 text-[#dc6e24] text-[16px]">{key}</th>
@@ -200,7 +201,25 @@ const LeaderBoard = () => {
 
                     }
 
-                </div>
+                </div> */}
+
+
+                {(data && keys) ? <div className='px-1 w-full max-w-[1000px] m-auto'>
+                    <div className="header flex items-center mb-[40px] justify-between px-3">
+                        <h3>Rank</h3>
+                        <h3>Name</h3>
+                        <h3>Score</h3>
+                    </div>
+
+                    <div className="participants flex flex-col justify-center gap-y-[20px]">
+                        {data.map((item, index) => {
+                            return <Participant key={index} item={item} index={index} keys={keys} />
+                        })}
+                    </div>
+
+                </div> : <div className='m-auto'>
+                    Nothing Cooked.
+                </div>}
 
             </section>
 

@@ -15,6 +15,7 @@ const LeaderBoard = () => {
     const [year, setYear] = useState('2025')
     const [keys, setKeys] = useState([])
     const [searchValue, setSearchValue] = useState('')
+    const [questions, setQuestions] = useState({})
     let scrollTemp = true
 
 
@@ -56,7 +57,8 @@ const LeaderBoard = () => {
 
     useEffect(() => {
         // Assuming the CSV file is located in the public folder
-        const fileName = '/leaderboardData/' + month + year + '.csv'
+        const fileName = '/leaderboardData/csv/' + month + year + '.csv'
+        const jsonFileName = '/leaderboardData/json/' + month + year + '.json'
 
         fetch(fileName)
             .then((response) => response.text())
@@ -80,6 +82,17 @@ const LeaderBoard = () => {
                 });
             })
             .catch((error) => console.error("Error while fetching CSV:", error));
+        
+
+            fetch(jsonFileName)
+            .then((response) => response.json())
+            .then((data) => {
+                setQuestions(data)
+            })
+            .catch((error) => console.error("Error while fetching json file:", error));
+        
+
+        
     }, [month, year]);
 
 
@@ -213,7 +226,7 @@ const LeaderBoard = () => {
 
                     <div className="participants flex flex-col justify-center gap-y-[20px]">
                         {data.map((item, index) => {
-                            return <Participant key={index} item={item} index={index} keys={keys} />
+                            return <Participant key={index} item={item} index={index} keys={keys} questions={questions} />
                         })}
                     </div>
 

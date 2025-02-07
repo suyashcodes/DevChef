@@ -5,10 +5,11 @@ import { img } from 'framer-motion/client'
 
 
 
-const Participant = ({ index, item, keys }) => {
+const Participant = ({ index, item, keys, questions }) => {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [isActive, setIsActive] = useState(false)
+    
 
 
     const boxVariants = {
@@ -48,7 +49,7 @@ const Participant = ({ index, item, keys }) => {
     function getRankingColor(index) {
         if (index == 0) return 'bg-[#FFD700]'
         else if (index == 1) return 'bg-[#C0C0C0]'
-        else if (index == 2) return 'bg-[#CD7F32]'
+        // else if (index == 2) return 'bg-[#CD7F32]'
         else return 'bg-[#383736]'
     }
 
@@ -67,15 +68,6 @@ const Participant = ({ index, item, keys }) => {
         }
     }, [])
 
-    // useEffect(() => {
-    //   if(width > 600) setIsActive(true)
-    //     else setIsActive(false)
-
-    //   return () => {
-
-    //   }
-    // }, [width])
-
 
 
 
@@ -92,7 +84,7 @@ const Participant = ({ index, item, keys }) => {
                 <div className='relative'>
                     {index == 0 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/golden-crown.png' />}
                     {index == 1 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/silver-crown.png' />}
-                    {index == 2 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/bronze-crown.png' />}
+                    {/* {index == 2 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/bronze-crown.png' />} */}
                     <h3>{item.Name}</h3>
                 </div>
                 <h3>{item.Score}</h3>
@@ -105,8 +97,8 @@ const Participant = ({ index, item, keys }) => {
             >{
                     keys.map((key, index) => {
                         if (key.startsWith('Q'))
-                            return <div key={index} className=' flex items-center w-[100px] justify-between'>
-                                <p className='font-bold'>{key}</p>
+                            return <div key={index} className=' flex items-center w-full gap-[50px] justify-between'>
+                                <p className='font-bold'>{questions[key]}</p>
                                 <p>{item[key]}</p>
                             </div>
                     })

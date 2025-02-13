@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import DynamicNavbar from '../components/DynamicNavbar'
-import { motion } from 'framer-motion';
 import Papa from "papaparse";
-import LeaderboardElement from '../components/LeaderboardElement';
-import { div } from 'framer-motion/client';
-import LeaderboardItem from '../components/LeaderboardItem';
 import Participant from '../components/Participant'
+import CombinedLeaderboard from '../components/CombinedLeaderboard';
 
 const LeaderBoard = () => {
 
@@ -17,6 +14,9 @@ const LeaderBoard = () => {
     const [searchValue, setSearchValue] = useState('')
     const [questions, setQuestions] = useState({})
     let scrollTemp = true
+
+    const a = CombinedLeaderboard()
+
 
 
     function handleResize() {
@@ -85,11 +85,11 @@ const LeaderBoard = () => {
         
 
             fetch(jsonFileName)
-            .then((response) => response.json())
-            .then((data) => {
-                setQuestions(data)
-            })
-            .catch((error) => console.error("Error while fetching json file:", error));
+                .then((response) => response.json())
+                .then((data) => {
+                    setQuestions(data)
+                })
+                .catch((error) => console.error("Error while fetching json file:", error));
         
 
         

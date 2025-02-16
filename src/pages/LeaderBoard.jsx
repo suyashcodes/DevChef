@@ -8,14 +8,17 @@ const LeaderBoard = () => {
 
     const [data, setData] = useState([])
     const [width, setWidth] = useState(window.innerWidth)
-    const [month, setMonth] = useState('January')
+    const [month, setMonth] = useState('February')
     const [year, setYear] = useState('2025')
     const [keys, setKeys] = useState([])
     const [searchValue, setSearchValue] = useState('')
     const [questions, setQuestions] = useState({})
+    const [leaderboardType, setLeaderboardType] = useState("monthly")
     let scrollTemp = true
 
     const a = CombinedLeaderboard()
+    // console.log(a)
+
 
 
 
@@ -132,10 +135,10 @@ const LeaderBoard = () => {
                 activeInNavbar={true}
             />
 
-            <section className='w-full max-w-[1200px]  gap-y-[24px] flex flex-col  m-auto p-[10px] s600:p-[20px] pt-[70px] '>
+            <section className='w-full  max-w-[1200px]  gap-y-[24px] flex flex-col  m-auto p-[10px] s600:p-[20px] pt-[70px] '>
 
 
-                <div className='w-full py-4 gap-x-20 gap-y-5 font-extrabold text-orange-600 flex-col s1000:flex-row flex justify-between  items-center    '>
+                <div className='w-full py-4 px-[20px] gap-x-20 gap-y-5 font-extrabold text-orange-600  flex-col s1000:flex-row flex justify-between  items-center    '>
                     <div className='flex gap-3 items-center'>
                         <p className='text-[0.9rem] font-extrabold px-2 py-[6px] rounded-xl bg-[#453f39] w-fit'>Chapter 3</p>
                         <p className='text-[17px]'>{month} {year}</p>
@@ -187,6 +190,12 @@ const LeaderBoard = () => {
                         </select>
 
                     </div>
+
+
+
+                    
+
+
                 </div>
 
 

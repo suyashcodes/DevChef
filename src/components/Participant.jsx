@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-
-
-
 const Participant = ({ index, item, keys, questions }) => {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [isActive, setIsActive] = useState(false)
-    
-
-
     const boxVariants = {
         initial: {
             scale: 1,
@@ -45,10 +39,11 @@ const Participant = ({ index, item, keys, questions }) => {
         }
     }
 
+
     function getRankingColor(index) {
         if (index == 0) return 'bg-[#FFD700]'
         else if (index == 1) return 'bg-[#C0C0C0]'
-        // else if (index == 2) return 'bg-[#CD7F32]'
+        else if (index == 2) return 'bg-[#CD7F32]'
         else return 'bg-[#383736]'
     }
 
@@ -66,8 +61,6 @@ const Participant = ({ index, item, keys, questions }) => {
             window.removeEventListener('resize', handleResize)
         }
     }, [])
-
-
 
 
     return (
@@ -89,20 +82,18 @@ const Participant = ({ index, item, keys, questions }) => {
                 <h3>{item.Score}</h3>
             </div>
 
-
             {isActive && <motion.div
                 className='flex flex-col gap-3 justify-center items-center p-[10px] bg-white text-black rounded-md'
             // variants={questionsVariants}
             >{
-                    keys.map((key, index) => {
-                        if (key.startsWith('Q'))
-                            return <div key={index} className=' flex items-center w-full gap-[50px] justify-between'>
-                                <p className='font-bold'>{questions[key]}</p>
-                                <p>{item[key]}</p>
-                            </div>
-                    })
-                }</motion.div>}
-
+                keys.map((key, index) => {
+                    if (key.startsWith('Q'))
+                        return <div key={index} className=' flex items-center w-full gap-[50px] justify-between'>
+                            <p className='font-bold'>{questions[key]}</p>
+                            <p>{item[key]}</p>
+                        </div>
+                })
+            }</motion.div>}
         </motion.div>
     )
 }

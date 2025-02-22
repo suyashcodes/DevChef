@@ -30,9 +30,6 @@ const DevChef = () => {
     return (
         <div className='w-screen text-white bg-[#1a1816] text-[16px] s800:text-[12px] s1230:text-[16px]'>
 
-
-
-
             <div className='w-full relative overflow-hidden '>
 
                 <DynamicNavbar

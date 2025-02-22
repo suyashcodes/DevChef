@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import DynamicNavbar from '../components/DynamicNavbar'
 import Papa from "papaparse";
 import Participant from '../components/Participant'
@@ -14,10 +14,9 @@ const LeaderBoard = () => {
     const [searchValue, setSearchValue] = useState('')
     const [questions, setQuestions] = useState({})
     const [leaderboardType, setLeaderboardType] = useState("monthly")
+    const yearlyLeaderboard = CombinedLeaderboard()
     let scrollTemp = true
 
-    const a = CombinedLeaderboard()
-    // console.log(a)
 
 
 
@@ -56,9 +55,18 @@ const LeaderBoard = () => {
     }, [])
 
 
-
+    // useEffect(() => {
+    //   console.log(leaderboardType)
+    
+    //   return () => {
+        
+    //   }
+    // }, [leaderboardType])
+    
 
     useEffect(() => {
+        if(leaderboardType == 'all-time') return
+
         // Assuming the CSV file is located in the public folder
         const fileName = '/leaderboardData/csv/' + month + year + '.csv'
         const jsonFileName = '/leaderboardData/json/' + month + year + '.json'
@@ -85,25 +93,39 @@ const LeaderBoard = () => {
                 });
             })
             .catch((error) => console.error("Error while fetching CSV:", error));
-        
 
-            fetch(jsonFileName)
-                .then((response) => response.json())
-                .then((data) => {
-                    setQuestions(data)
-                })
-                .catch((error) => console.error("Error while fetching json file:", error));
-        
 
-        
-    }, [month, year]);
+        fetch(jsonFileName)
+            .then((response) => response.json())
+            .then((data) => {
+                setQuestions(data)
+            })
+            .catch((error) => console.error("Error while fetching json file:", error));
+
+
+
+    }, [month, year, leaderboardType]);
+
+    useEffect(() => {
+        if (leaderboardType == 'monthly') return
+        setData(yearlyLeaderboard)
+
+        fetch('/leaderboardData/combined/all-time.json')
+            .then((response) => response.json())
+            .then((data) => {
+                setQuestions(data)
+            })
+            .catch((error) => console.error("Error while fetching json file:", error));
+
+    }, [leaderboardType])
+
 
 
     useEffect(() => {
         if (!data || !data[0]) return
         const keys = Object.keys(data[0])
         setKeys(keys)
-    }, [data])
+    }, [data, leaderboardType])
 
 
 
@@ -159,41 +181,55 @@ const LeaderBoard = () => {
                     </div> */}
 
                     <div className="selectors flex items-center gap-3">
-                        <select
-                            className='py-1 px-3 rounded-md '
-                            value={month}
-                            onChange={e => setMonth(e.target.value)}
-                        >
-                            <option value="" disabled>Month</option>
-                            <option value="January">January</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
+
+                        {leaderboardType == 'monthly' && <>
+                            <select
+                                className='py-1 px-3 rounded-md '
+                                value={month}
+                                onChange={e => setMonth(e.target.value)}
+                            >
+                                <option value="" disabled>Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+
+                            <select
+                                className='py-1 px-3 rounded-md '
+                                value={year}
+                                onChange={e => setYear(e.target.value)}
+                            >
+                                <option value="" disabled>Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </>}
+
 
                         <select
                             className='py-1 px-3 rounded-md '
-                            value={year}
-                            onChange={e => setYear(e.target.value)}
+                            value={leaderboardType}
+                            onChange={e => setLeaderboardType(e.target.value)}
                         >
-                            <option value="" disabled>Year</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
+                            <option value="" disabled>View</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="all-time">All Time</option>
                         </select>
 
                     </div>
 
 
 
-                    
+
 
 
                 </div>
@@ -235,7 +271,7 @@ const LeaderBoard = () => {
 
                     <div className="participants flex flex-col justify-center gap-y-[20px]">
                         {data.map((item, index) => {
-                            return <Participant key={index} item={item} index={index} keys={keys} questions={questions} />
+                            return <Participant leaderboardType={leaderboardType} key={index} item={item} index={index} keys={keys} questions={questions} />
                         })}
                     </div>
 

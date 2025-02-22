@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-const Participant = ({ index, item, keys, questions }) => {
+const Participant = ({ index, item, keys, questions, leaderboardType }) => {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [isActive, setIsActive] = useState(false)
@@ -74,17 +74,16 @@ const Participant = ({ index, item, keys, questions }) => {
             <div className="header w-full px-5 flex items-center justify-between">
                 <h3>{item.Rank}</h3>
                 <div className='relative'>
-                    {index == 0 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/golden-crown.png' />}
-                    {index == 1 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/silver-crown.png' />}
-                    {/* {index == 2 && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/bronze-crown.png' />} */}
+                    {index == 0 && leaderboardType == 'monthly' &&  <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/golden-crown.png' />}
+                    {index == 1 && leaderboardType == 'monthly' &&  <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/silver-crown.png' />}
+                    {/* {index == 2 && leaderboardType == 'monthly' && <img className='absolute w-[20px] h-[20px] rotate-[-30deg] top-[-10px] left-[-10px]' src='/icons/bronze-crown.png' />} */}
                     <h3>{item.Name}</h3>
                 </div>
                 <h3>{item.Score}</h3>
             </div>
 
-            {isActive && <motion.div
+            {isActive && (leaderboardType == 'monthly') && <motion.div
                 className='flex flex-col gap-3 justify-center items-center p-[10px] bg-white text-black rounded-md'
-            // variants={questionsVariants}
             >{
                 keys.map((key, index) => {
                     if (key.startsWith('Q'))
@@ -93,7 +92,27 @@ const Participant = ({ index, item, keys, questions }) => {
                             <p>{item[key]}</p>
                         </div>
                 })
-            }</motion.div>}
+            }
+            </motion.div>}
+
+
+
+
+            {isActive && (leaderboardType == 'all-time') && <motion.div
+                className='flex flex-col gap-3 justify-center items-center p-[10px] bg-white text-black rounded-md'
+            >{
+                keys.map((key, index) => {
+                    if (!['Name', 'Username', 'Score', 'Rank'].includes(key))
+                        return <div key={index} className=' flex items-center w-full gap-[50px] justify-between'>
+                            <p className='font-bold'>{key}</p>
+                            <p>{item[key]}</p>
+                        </div>
+                })
+            }
+            </motion.div>}
+
+
+
         </motion.div>
     )
 }

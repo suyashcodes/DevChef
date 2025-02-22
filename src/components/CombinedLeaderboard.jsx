@@ -10,6 +10,15 @@ const CombinedLeaderboard = () => {
     const [scores, setScores] = useState({})
     const [final, setFinal] = useState([])
 
+
+    function splitMonthYear(monthYear) {
+        const match = monthYear.match(/([A-Za-z]+)(\d{4})/);
+        if (!match) return ''; 
+        return match[1] +' '+match[2]
+    }
+
+
+
     useEffect(() => {
         fetch('/leaderboardData/combined/leaderboards.json')
             .then((response) => response.json())
@@ -48,10 +57,12 @@ const CombinedLeaderboard = () => {
                                     }
                                 })
                                 if(resData.length > 0) {
-                                    setFiles(pre => {
-                                        if (pre.includes(key)) return pre
-                                        else return [...pre, { [key]: resData }]
-                                    })
+                                    setFiles((pre) => {
+                                        if (pre.some(file => file[key])) {
+                                            return pre;
+                                        }
+                                        return [...pre, { [key]: resData }];
+                                    });
                                 }
                             },
                             error: (error) => {
@@ -68,8 +79,10 @@ const CombinedLeaderboard = () => {
         }
 
     }, [leaderboards])
+    
 
 
+    // update userData
     useEffect(() => {
         if(!files.length) return
 
@@ -78,35 +91,80 @@ const CombinedLeaderboard = () => {
 
             for (const users of userArray) {
                 for (const user of users) {
-                    // update userData
                     setUserData(pre => {
                         return { ...pre, [user.Username]: user }
                     })
-
-                    // update scores
-                    setScores(pre => {
-                        const score = Number((scores[user.Username] ? scores[user.Username].Score : 0) + user.Score)
-                        // console.log(file)
-                        // console.log(scores[user.Username] ? scores[user.Username].Score: 0)
-                        return { 
-                            ...pre, 
-                            [user.Username]: score 
-                        }
-                    })
                 }
             }
+        }
+
+        return () => {
+            setUserData({})
         }
 
     }, [files])
 
 
 
+
+
+    // update scores
+    useEffect(() => {
+        if(!files.length) return
+
+        const tempScores = {}
+
+        for (const file of files) {
+            const userArray = Object.values(file)
+            const month = splitMonthYear(Object.keys(file)[0])
+
+            for (const users of userArray) {
+                for (const user of users) {
+
+                    const Score = Number(tempScores[user.Username]?.Score || 0) + Number(user.Score);
+                    tempScores[user.Username] = {
+                        ...tempScores[user.Username],
+                        [month]: Math.floor(Number(user.Score)),
+                        Score: Math.floor(Score),
+                    }
+                }
+            }
+        }
+
+        setScores(tempScores)
+
+        return () => {
+            setScores({})
+        }
+
+    }, [files])
+
+
+
+
     useEffect(() => {
         if(!userData) return
+        
         const sortScores = (scores) => {
-            return Object.entries(scores).sort(([, a], [, b]) => b - a)
+            let arr = Object.entries(scores).sort(([, a], [, b]) => {
+                return b.Score - a.Score
+            })
+
+            arr = arr.map((item, index) => {
+                return {
+                    Rank: index + 1,
+                    Name: item[0],
+                    ...item[1]
+                }
+            })
+            return arr
         }
         setFinal(sortScores(scores))
+        
+        return () => {
+            setFinal([])
+        }
+
     }, [scores, userData])
 
 

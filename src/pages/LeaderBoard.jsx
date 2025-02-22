@@ -215,7 +215,7 @@ const LeaderBoard = () => {
                         </>}
 
 
-                        <select
+                        {/* <select
                             className='py-1 px-3 rounded-md '
                             value={leaderboardType}
                             onChange={e => setLeaderboardType(e.target.value)}
@@ -223,7 +223,7 @@ const LeaderBoard = () => {
                             <option value="" disabled>View</option>
                             <option value="monthly">Monthly</option>
                             <option value="all-time">All Time</option>
-                        </select>
+                        </select> */}
 
                     </div>
 

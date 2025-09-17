@@ -162,7 +162,7 @@ const LeaderBoard = () => {
 
                 <div className='w-full py-4 px-[20px] gap-x-20 gap-y-5 font-extrabold text-orange-600  flex-col s1000:flex-row flex justify-between  items-center    '>
                     <div className='flex gap-3 items-center'>
-                        <p className='text-[0.9rem] font-extrabold px-2 py-[6px] rounded-xl bg-[#453f39] w-fit'>Chapter 3</p>
+                        <p className='text-[0.9rem] font-extrabold px-2 py-[6px] rounded-xl bg-[#453f39] w-fit'>Chapter 4</p>
                         <p className='text-[17px]'>{month} {year}</p>
                     </div>
 
@@ -284,7 +284,7 @@ const LeaderBoard = () => {
 
 
             <footer className='w-full p-[30px] text-center text-[80%]'>
-                <p>© 2024 DevKraft. All rights reserved.</p>
+                <p>© 2025 DevKraft. All rights reserved.</p>
             </footer>
 
         </div>

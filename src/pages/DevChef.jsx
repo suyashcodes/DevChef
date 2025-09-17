@@ -9,11 +9,11 @@ const DevChef = () => {
     const [width, setWidth] = useState(window.innerWidth)
 
     // Make changes here only
-    const isRegestrationOpen = false
-    const formLink = "https://docs.google.com/forms/d/e/1FAIpQLScYlV8NuQNdFcSpSK6CsHWemdS6MkP-niB4tm6aZMQRmASVdw/viewform?usp=header"
-    const eventDate = "8th February 2025 (11:00 AM)"
+    const isRegestrationOpen = true
+    const formLink = "https://forms.gle/QKPVEFK63XKBrtby6"
+    const eventDate = "23rd September 2025 (04:30 PM - 06:00 PM)"
     const eventMode = "Offline"
-    const chapterNo = 3
+    const chapterNo = 4
     
     function handleResize() {
         setWidth(window.innerWidth)
@@ -78,7 +78,7 @@ const DevChef = () => {
                         <div className='flex flex-col relative gap-[80px] items-center '>
                             <div className='w-[60%] s600:w-[80%] m-auto flex justify-start items-start scale-150 s600:scale-100 s600:ml-[0px] s800:ml-[-20px] s1000:ml-0'><img className='w-full' src="/logos/DevChef Posters (4).png" alt="devchefLogo" /></div>
                             <p className='absolute right-[15px] top-16 s600:bottom-0 s600:right-0 text-[0.75rem] font-extrabold p-2 rounded-xl bg-[#2f2b27]'>Chapter {chapterNo}</p>
-                            {width < 600 && <div className='w-[60%] s600:w-[80%] m-auto flex justify-start items-start scale-150 s600:scale-100 s600:ml-[-40px] s800:ml-[-20px]'><img className='w-full' src="/logos/DevChef Posters (7).png" alt="combined logo" /></div>}
+                            {/* {width < 600 && <div className='w-[60%] s600:w-[80%] m-auto flex justify-start items-start scale-150 s600:scale-100 s600:ml-[-40px] s800:ml-[-20px]'><img className='w-full' src="/logos/DevChef Posters (7).png" alt="combined logo" /></div>} */}
                         </div>
 
                         <div className='w-full h-full  flex flex-col gap-[10px] s600:gap-[50px] justify-end s600:justify-start pb-[70px]'>
@@ -242,7 +242,7 @@ const DevChef = () => {
                 <section className='s1000:w-[950px] s1230:w-[1000px] m-auto p-[20px] s1000:p-[50px] flex s600:gap-0 gap-[70px] flex-col  justify-start'>
 
 
-                    {width > 600 && <div className='m-auto scale-150 w-[40%] py-[60px]'><img className='w-full' src="/logos/DevChef Posters (7).png" alt="" /></div>}
+                    {/* {width > 600 && <div className='m-auto scale-150 w-[40%] py-[60px]'><img className='w-full' src="/logos/DevChef Posters (7).png" alt="" /></div>} */}
 
 
 
@@ -260,8 +260,8 @@ const DevChef = () => {
                             <div id='about' className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>About the event</p>
                                 <div className='flex flex-col gap-[15px]'>
-                                    <p>The DevChef Monthly DSA Coding Contest is designed to help students refine their coding skills through competitive programming. Each month, participants will tackle three problems ranging from Easy to Hard, designed to test their understanding of Data Structures and Algorithms.</p>
-                                    <p>Sharpen your skills, compete with fellow coders, and track your progress with our monthly Leaderboard. The contest format will prepare you for coding interviews and technical rounds that top companies look for during recruitment.</p>
+                                    <p>The DevChef Quarterly DSA Coding Contest is designed to help students refine their coding skills through competitive programming. Each quarter, participants will tackle three problems ranging from Easy to Hard, designed to test their understanding of Data Structures and Algorithms.</p>
+                                    <p>Sharpen your skills, compete with fellow coders, and track your progress with our quarterly Leaderboard. The contest format will prepare you for coding interviews and technical rounds that top companies look for during recruitment.</p>
                                 </div>
                             </div>
 
@@ -311,9 +311,9 @@ const DevChef = () => {
 
                             <div className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>What is this about?</p>
-                                <p>Welcome to DevChef Monthly DSA Coding Contest!
-                                    Brought to you by Team Devkraft & GDSC DIT
-                                    Get ready to dive into the world of Data Structures and Algorithms (DSA) with our monthly DevChef Coding Contest, hosted at Dr. D. Y. Patil Institute of Technology, Pune. Whether you are preparing for placements or looking to enhance your problem-solving skills, this event is the perfect opportunity to strengthen your DSA expertise and compete for exciting prizes!</p>
+                                <p>Welcome to DevChef Quarterly DSA Coding Contest!
+                                    Brought to you by Team Devkraft
+                                    Get ready to dive into the world of Data Structures and Algorithms (DSA) with our quarterly DevChef Coding Contest, hosted at Dr. D. Y. Patil Institute of Technology, Pune. Whether you are preparing for placements or looking to enhance your problem-solving skills, this event is the perfect opportunity to strengthen your DSA expertise and compete for exciting prizes!</p>
                             </div>
                         </div>
                     </motion.div>
@@ -334,13 +334,15 @@ const DevChef = () => {
                                 <p className='text-[200%] font-bold '>Event Details</p>
                                 <div className='flex flex-col gap-[15px]'>
                                     <p>
-                                        📅 Contest Date: {eventDate} <br />
-                                        🕒 Format: 3 DSA problems (Easy, Medium, Hard) <br />
-                                        ⏱️ Duration: 1.5 hours <br />
-                                        🎛️ Mode: {eventMode} <br />
-                                        {/* 💸 Entry Fee: ₹19 per participant <br /> */}
-                                        🌍 Eligibility: Open to all students at Dr. D. Y. Patil Institute of Technology <br/>
-                                    </p>
+    📅 Contest Date: 23rd Sept 2025 (4:30–6:30 pm) <br />
+    🕒 Format: 3 DSA problems (Easy, Medium, Hard) <br />
+    ⏱️ Duration: 1.5 hours <br />
+    🎛️ Mode: Offline <br />
+    💸 Entry Fee: ₹49 only <br />
+    💰 Cash prizes up to ₹2,000 for top performers <br />
+    🏆 Trophies awarded to quarterly contest winners <br />
+    📈 Leaderboard updated quarterly and displayed on the website <br />
+</p>
                                 </div>
                             </div>
 
@@ -395,8 +397,7 @@ const DevChef = () => {
                                 <div className='flex flex-col gap-[15px]'>
                                     <p>Perfect Placement Prep: Practice DSA problems and get placement-ready by honing your problem-solving skills. </p>
                                     <p>Compete & Win: Compete against the best coding minds and win cash prizes, trophies, and bragging rights!
-                                        Track Your Progress: Our monthly Leaderboard will help you stay on top of your game.</p>
-                                    <p>Exclusive Grand Finale: The top 30 participants of the year will qualify for the Grand Finale, where the ultimate DevChef will be crowned with a grand trophy and cash prize.</p>
+                                        Track Your Progress: Our quarterly Leaderboard will help you stay on top of your game.</p>
                                 </div>
                             </div>
                         </div>
@@ -418,10 +419,9 @@ const DevChef = () => {
                             <div className='flex flex-col gap-[10px] s600:gap-[20px]'>
                                 <p className='text-[200%] font-bold '>Prizes & Leaderboard</p>
                                 <div className='flex flex-col gap-[15px]'>
-                                    <p>💰 Cash Prizes: Up to ₹1,000 for top performers.</p>
-                                    <p>🏆 Trophies: Awarded to the monthly contest winners.</p>
-                                    <p>📈 Leaderboard: Your scores will be reflected on a monthly updated leaderboard, displayed on this website. By the end of the year, the top 30 coders will be invited to the Grand Finale!
-                                        In the Grand Finale, the best coding minds will compete for the ultimate DevChef Trophy and a special cash prize.</p>
+                                    <p>💰 Cash Prizes: Up to ₹2,000 for top performers.</p>
+                                    <p>🏆 Trophies: Awarded to the quarterly contest winners.</p>
+                                    <p>📈 Leaderboard: Your scores will be reflected on a quarterly updated leaderboard, displayed on this website.</p>
                                 </div>
                             </div>
 
@@ -455,7 +455,7 @@ const DevChef = () => {
 
 
             <footer className='w-full p-[30px] text-center text-[80%]'>
-                <p>© 2024 DevKraft. All rights reserved.</p>
+                <p>© 2025 DevKraft. All rights reserved.</p>
             </footer>
 
 
